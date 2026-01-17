@@ -13,18 +13,26 @@ CORS(app)
 # CONFIG
 # =========================
 RSS_SOURCES = [
-    {
-        "name": "BBC Bangla",
-        "category": "news",
-        "rss": "https://feeds.bbci.co.uk/bengali/rss.xml"
-    },
-    # Add more sources as needed
+    # News - General / Reliable
+    {"name": "BBC Bangla", "category": "news", "rss": "https://feeds.bbci.co.uk/bengali/rss.xml"},
+    {"name": "Prothom Alo", "category": "news", "rss": "https://www.prothomalo.com/feed/"},
+    {"name": "Jugantor", "category": "news", "rss": "https://www.jugantor.com/rss/latest"},
+    {"name": "Kaler Kantho", "category": "news", "rss": "https://www.kalerkantho.com/rss.xml"},
+    {"name": "RisingBD", "category": "news", "rss": "https://www.risingbd.com/rss/rss.xml"},
+    {"name": "BD24Live", "category": "news", "rss": "https://www.bd24live.com/feed"},
+
+    # Jobs / চাকরি (dedicated RSS কম, general feed + category filter)
+    {"name": "BD Govt Job (via aggregator)", "category": "jobs", "rss": "https://bdgovtjob.net/feed/"},
+    {"name": "Prothom Alo (filter jobs)", "category": "jobs", "rss": "https://www.prothomalo.com/feed/"},
+
+    # Education / শিক্ষা
+    {"name": "Prothom Alo (filter education)", "category": "education", "rss": "https://www.prothomalo.com/feed/"},
+    {"name": "Jagonews24", "category": "education", "rss": "https://www.jagonews24.com/rss/rss.xml"},
+
+    # Tech
+    {"name": "Prothom Alo Tech", "category": "tech", "rss": "https://www.prothomalo.com/feed/"},
+    {"name": "Jugantor Tech", "category": "tech", "rss": "https://www.jugantor.com/rss/tech"},
 ]
-
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (NewsAggregatorBot)"
-}
-
 # Simple in-memory cache
 CACHE = {}
 CACHE_TTL = 300  # 5 minutes
@@ -149,3 +157,4 @@ def home():
 # =========================
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
